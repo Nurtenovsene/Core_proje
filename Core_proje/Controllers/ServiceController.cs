@@ -14,18 +14,12 @@ namespace Core_proje.Controllers
         ServiceManager serviceManager = new ServiceManager(new EfServiceDal());
         public IActionResult Index()
         {
-            ViewBag.v1 = "hizmet Listesi";
-            ViewBag.v2 = "hizmeter";
-            ViewBag.v3 = "hizmet Listesi";
             var values = serviceManager.TGetList();
             return View(values);
         }
         [HttpGet]
         public IActionResult AddService()
         {
-            ViewBag.v1 = "hizmet Listesi";
-            ViewBag.v2 = "hizmeter";
-            ViewBag.v3 = "hizmet Ekleme";
             return View();
         }
         [HttpPost]
@@ -43,9 +37,6 @@ namespace Core_proje.Controllers
         [HttpGet]
         public IActionResult EditService(int id)
         {
-            ViewBag.v1 = "hizmet Listesi";
-            ViewBag.v2 = "hizmeter";
-            ViewBag.v3 = "hizmet Güncelleme";
             var values = serviceManager.TGetByID(id);
             return View(values);
         }

@@ -1,5 +1,6 @@
 ﻿using Core_proje.Areas.Writter.Models;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -9,7 +10,9 @@ using System.Threading.Tasks;
 
 namespace Core_proje.Areas.Writter.Controllers
 {
+    [AllowAnonymous]
     [Area("writter")]
+    [Route("Writter/[controller]/[action]")]
     public class RegisterController : Controller
     {
         private readonly UserManager<WriterUser> _userManager;
@@ -44,7 +47,7 @@ namespace Core_proje.Areas.Writter.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index,Login");
+                    return RedirectToAction("Index", "Login");
                 }
                 else
                 {

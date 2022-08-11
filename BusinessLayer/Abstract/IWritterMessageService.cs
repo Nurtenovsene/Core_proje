@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Abstract
 {
-   public interface IUserMessageService:IGenericService<UserMessage>
+    public interface IWritterMessageService:IGenericService<WriterMessage>
     {
+        List<WriterMessage> GetListSenderMessage(string p);
+        List<WriterMessage> GetListReceiverMessage(string p);
 
-
-        List<UserMessage> GetUserMessageWithUserService();
     }
 }

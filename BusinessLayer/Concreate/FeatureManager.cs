@@ -43,6 +43,9 @@ namespace BusinessLayer.Concreate
             _featureDal.Update(t);
         }
 
-        
+        public List<Feature> TGetListbyFilter()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

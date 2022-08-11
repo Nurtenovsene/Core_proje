@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace DataAcessLayor.Abstract
 {
-   public interface IUserDal:IGenericDal<User>
+    public interface IWritterMessageDal : IGenericDal<WriterMessage>
     {
+        List<WriterMessage> GetbyFilter(Func<object, bool> p);
     }
 }

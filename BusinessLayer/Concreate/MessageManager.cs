@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using EntityLayer;
+using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,20 +26,37 @@ namespace BusinessLayer.Concreate
 
         public void TDelete(Message t)
         {
-            throw new NotImplementedException();
+            _messageDal.Delete(t);
         }
+
 
         public Message TGetByID(int id)
         {
-            throw new NotImplementedException();
+            return _messageDal.GetByID(id);
         }
 
         public List<Message> TGetList()
         {
-            throw new NotImplementedException();
+            return _messageDal.GetList();
         }
 
         public void TUpdate(Message t)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        Message IGenericService<Message>.TGetByID(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<Message> IGenericService<Message>.TGetList()
+        {
+            throw new NotImplementedException();
+        }
+
+        List<Message> IGenericService<Message>.TGetListbyFilter()
         {
             throw new NotImplementedException();
         }

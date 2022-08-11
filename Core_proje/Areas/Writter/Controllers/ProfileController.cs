@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Core_proje.Areas.Writter.Controllers
 {
     [Area("Writter")]
-    [Route("Writter/[Controller]/[action]")]
+    [Route("Writter/[controller]/[action]")]
     public class ProfileController : Controller
     {
         private readonly IWebHostEnvironment _hostingEnvironment;
@@ -59,10 +59,11 @@ namespace Core_proje.Areas.Writter.Controllers
                 }
                 user.Name = p.Name;
                 user.Surname = p.SurName;
+                user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, p.Password);
                 var result = _userManager.UpdateAsync(user).Result;
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Default");
+                    return RedirectToAction("Index", "Login");
                 }
                 return View();
             }

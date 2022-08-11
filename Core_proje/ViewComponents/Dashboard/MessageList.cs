@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concreate;
+using DataAccessLayer.EntityFramework;
 using DataAcessLayor.EntityFramework;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,12 +11,11 @@ namespace Core_proje.ViewComponents.Dashboard
 {
     public class MessageList:ViewComponent
     {
-        UserMessageManager messageManager = new UserMessageManager(new EfUserMessageDal());
- 
+        MessageManager messageManager = new MessageManager(new EfMessageDal());
         public IViewComponentResult Invoke()
         {
-            var Values = messageManager.GetUserMessageWithUserService();
-            return View(Values);
+            var values = messageManager.TGetList().Take(5).ToList();
+            return View(values);
         }
     }
 }

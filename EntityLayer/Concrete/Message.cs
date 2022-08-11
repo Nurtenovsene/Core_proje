@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EntityLayer
+namespace EntityLayer.Concrete
 {
-    public class Message
+   public class Message
     {
         [Key]
         public int MessageID { get; set; }
